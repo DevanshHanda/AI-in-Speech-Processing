@@ -1,1 +1,15 @@
-print("hello")
+import numpy as np
+
+# Define the signals
+x = np.array([1, 2, 3, 4])
+h = np.array([1, 2, 3])
+
+# Without zero padding
+y_no_padding = np.convolve(x, h)
+
+# With zero padding
+x_padded = np.pad(x, (0, len(h) - 1), 'constant')
+y_with_padding = np.convolve(x_padded, h)
+
+print("Convolution without zero padding:", y_no_padding)
+print("Convolution with zero padding:", y_with_padding)
